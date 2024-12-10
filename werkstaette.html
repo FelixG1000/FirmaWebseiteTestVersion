@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="de" data-bs-theme="dark">
+
+<head>
+  <title>Werkstätte - KFZ Gritscher</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    /* Navbar bleibt immer dunkel */
+    .navbar-dark {
+      background-color: #343a40 !important;
+    }
+
+    .navbar-dark .nav-link,
+    .navbar-dark .navbar-brand {
+      color: white !important;
+    }
+
+    /* Darkmode-Umschalter */
+    .theme-switch {
+      position: fixed;
+      top: 80px; /* Unterhalb der Navbar */
+      right: 20px;
+      background-color: var(--bs-secondary-bg);
+      color: var(--bs-body-color);
+      border: none;
+      padding: 10px;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      z-index: 1; /* Unter der Navbar */
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .theme-switch.hidden {
+      opacity: 0;
+      transform: translateY(-20px);
+      pointer-events: none;
+    }
+
+    /* Toast dynamisch anpassen */
+    .toast-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1050;
+    }
+
+    .toast {
+      max-width: 100%;
+      width: auto;
+    }
+
+    @media (max-width: 768px) {
+      .toast-container {
+        bottom: 10px; /* Platz für Mobilgeräte */
+        right: 50%;
+        transform: translateX(50%); /* Zentriere horizontal */
+        display: flex;
+        justify-content: center;
+      }
+
+      .toast {
+        width: 90%; /* Toast nimmt weniger Platz ein */
+        font-size: 0.9rem; /* Textgröße für kleinere Displays */
+      }
+    }
+
+    /* Flexbox-Layout für den Footer */
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .content {
+      flex: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <img src="Images/logotransparent.png" alt="Logo" style="width:125px; height:auto;" class="rounded-pill">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Startseite</a></li>
+          <li class="nav-item"><a class="nav-link active" href="werkstaette.html">Werkstätte</a></li>
+          <li class="nav-item"><a class="nav-link" href="anUndVerkauf.html">An-& Verkauf</a></li>
+          <li class="nav-item"><a class="nav-link" href="traktor.html">Traktor</a></li>
+          <li class="nav-item"><a class="nav-link" href="ueberuns.html">Über Uns</a></li>
+          <li class="nav-item"><a class="nav-link" href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Darkmode-Umschalter -->
+  <button class="theme-switch" id="themeSwitch">🌙</button>
+
+  <!-- Wrapper für Flexbox-Layout -->
+  <div class="wrapper">
+    <!-- Hero-Bereich -->
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+      <h1>Unsere Werkstätte</h1>
+      <p>Fachkompetenz, modernste Technik und persönliche Betreuung – alles an einem Ort.</p>
+    </div>
+
+    <!-- Inhalt in 3 Spalten -->
+    <div class="container mt-5 content">
+      <div class="row">
+        <!-- Erste Spalte -->
+        <div class="col-md-4">
+          <h4>Unsere Leistungen</h4>
+          <ul>
+            <li>Reparaturen aller Fahrzeugmarken</li>
+            <li>§ 57a Pickerlüberprüfung bis 3,5 Tonnen</li>
+            <li>Klimaanlagenwartung und Desinfektion</li>
+            <li>Reifenwechsel und Einlagerung</li>
+            <li>Motor- und Getriebereparaturen</li>
+          </ul>
+        </div>
+        <!-- Zweite Spalte -->
+        <div class="col-md-4">
+          <h4>Unsere Werkstatt im Überblick</h4>
+          <p>
+            Wir verfügen über aktuelle Diagnoseprogramme, Bremsscheiben und Beleuchtungen für viele Fahrzeugmarken.
+            Unsere langjährige Erfahrung, technisches Know-how und persönliche Kundenbetreuung zeichnen uns aus.
+          </p>
+          <p>
+            Mit einem Team, das Ihr Fahrzeug betreut, als wäre es unser eigenes, garantieren wir höchste Qualität.
+          </p>
+        </div>
+        <!-- Dritte Spalte -->
+        <div class="col-md-4">
+          <h4>Warum zu uns?</h4>
+          <ul>
+            <li>Transparente Preisgestaltung</li>
+            <li>Beratung aus Meisterhand</li>
+            <li>Direktverrechnung mit Ihrer Versicherung</li>
+            <li>Partner für Spenglerei und Lackiererei</li>
+            <li>Erfahrene und motivierte KFZ-Techniker</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Weitere Inhalte in 3 Spalten -->
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <h5>Pickerlüberprüfung</h5>
+          <p>
+            Wir prüfen Fahrzeuge aller Marken bis 3,5 Tonnen (auch Traktoren). Vereinbaren Sie einen Termin, um Wartezeiten zu vermeiden.
+          </p>
+        </div>
+        <div class="col-md-4">
+          <h5>Schadenabwicklung</h5>
+          <p>
+            Wir kümmern uns um den Papierkram und die Direktverrechnung mit Ihrer Versicherung. Für Lackierarbeiten arbeiten wir mit Partnern zusammen.
+          </p>
+        </div>
+        <div class="col-md-4">
+          <h5>Motor- und Getriebereparaturen</h5>
+          <p>
+            Unser Team liebt Herausforderungen und repariert selbst komplizierte Motorschäden mit Begeisterung und Präzision.
+          </p>
+        </div>
+      </div>
+
+      <!-- Letzter Abschnitt -->
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <h5>Reifenservice</h5>
+          <p>
+            Wechseln und lagern Sie Ihre Reifen bei uns – schnell und bequem.
+          </p>
+        </div>
+        <div class="col-md-4">
+          <h5>Windschutzscheiben</h5>
+          <p>
+            Ob Steinschlagreparatur oder Austausch, wir bieten Ihnen schnelle und zuverlässige Lösungen.
+          </p>
+        </div>
+        <div class="col-md-4">
+          <h5>Transparenz & Vertrauen</h5>
+          <p>
+            Vor jeder Reparatur erhalten Sie eine klare Kostenaufstellung – keine Überraschungen!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-3 bg-body-secondary">
+      <p class="mb-0">© 2024 KFZ Gritscher GmbH</p>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="impressum.html" class="text-decoration-none">Impressum</a></li>
+        <li class="list-inline-item"><a href="datenschutzerklaerung.html" class="text-decoration-none">Datenschutzerklärung</a></li>
+      </ul>
+    </footer>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-bs-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-bs-theme', newTheme);
+    }
+
+    // Darkmode-Schalter und Scroll-Handler
+    const themeSwitch = document.getElementById('themeSwitch');
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener('scroll', () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        themeSwitch.classList.add('hidden');
+      } else {
+        themeSwitch.classList.remove('hidden');
+      }
+      lastScrollY = currentScrollY;
+    });
+
+    themeSwitch.addEventListener('click', toggleTheme);
+  </script>
+</body>
+
+</html>
